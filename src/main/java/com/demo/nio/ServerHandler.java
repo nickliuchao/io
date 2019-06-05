@@ -99,8 +99,8 @@ public class ServerHandler implements Runnable {
                     byte[] bytes = new byte[readBuff.remaining()];
                     readBuff.get(bytes);
                     String body = new String(bytes, "utf-8");
-                    System.out.println("服务收到命令：" + body);
-                    String currentTime = "time".equals(body) ? new Date(System.currentTimeMillis()).toString() : "无效命令";
+                    System.out.println("服务收到消息：" + body);
+                    String currentTime = new Date(System.currentTimeMillis()).toString();
                     doWrite(sc, currentTime);
                 } else if (read < 0) {
                     key.cancel();
